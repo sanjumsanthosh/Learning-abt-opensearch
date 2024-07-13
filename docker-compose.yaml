@@ -9,7 +9,8 @@ services:
       - discovery.seed_hosts= edops-node1, edops-node2 # Nodes to look for when discovering the cluster
       - cluster.initial_cluster_manager_nodes=edops-node1, edops-node2 # Nodes eligible to serve as cluster manager
       - bootstrap.memory_lock=true # Disable JVM heap memory swapping
-      - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m" # Set min and max JVM heap sizes to at least 50% of system RAM
+      - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m" 
+      - plugins.security.disabled=true # Set min and max JVM heap sizes to at least 50% of system RAM
       - OPENSEARCH_INITIAL_ADMIN_PASSWORD=admin    # Sets the demo admin user password when using demo configuration, required for OpenSearch 2.12 and later
     ulimits:
       memlock:
@@ -35,6 +36,7 @@ services:
       - cluster.initial_cluster_manager_nodes=edops-node1,edops-node2
       - bootstrap.memory_lock=true
       - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m"
+      - plugins.security.disabled=true
       - OPENSEARCH_INITIAL_ADMIN_PASSWORD=admin
     ulimits:
       memlock:
